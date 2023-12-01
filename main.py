@@ -35,7 +35,7 @@ def dropbox():
 
 
 def init_model():
-    json_file = open('garbage_model.json', 'r').read()
+    json_file = open('multi_class_classification_model/garbage_model.json', 'r').read()
     model = model_from_json(json_file)
 
     returned_data = image_prediction(st.session_state.submission_file, model)
