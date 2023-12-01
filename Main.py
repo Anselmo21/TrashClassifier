@@ -12,7 +12,6 @@ def main():
     submission_file = dropbox()
 
     if not submission_file is None:
-        print(radio)
         with open(submission_file.name, 'wb') as f:
             f.write(submission_file.read())
 
