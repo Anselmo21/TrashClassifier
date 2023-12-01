@@ -3,13 +3,16 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 from keras.models import model_from_json
+from ultralytics import YOLO
 
 
 def main():
     settitle()
+    radio = st.radio(label="Switch between classifying one or multiple objects", options=['One object', 'Multiple objects'])
     submission_file = dropbox()
 
     if not submission_file is None:
+        print(radio)
         with open(submission_file.name, 'wb') as f:
             f.write(submission_file.read())
 
@@ -18,6 +21,7 @@ def main():
 
         button = st.button(label="Submit File")
         if button:
+            st.session_state.radio = radio
             init_model()
 
 
@@ -35,22 +39,42 @@ def dropbox():
 
 
 def init_model():
-    json_file = open('multi_class_classification_model/garbage_model.json', 'r').read()
-    model = model_from_json(json_file)
+    if st.session_state.radio == 'One object':
+        json_file = open('multi_class_classification_model/garbage_model.json', 'r').read()
+        model = model_from_json(json_file)
 
-    returned_data = image_prediction(st.session_state.submission_file, model)
+        returned_data = image_prediction(st.session_state.submission_file, model)
 
-    st.set_option('deprecation.showPyplotGlobalUse', False) # Due to visible deprecation warning
+        st.set_option('deprecation.showPyplotGlobalUse', False)  # Due to visible deprecation warning
 
-    st.divider()
-    st.write("## Your Results")
-    st.pyplot(returned_data.pop('Plot'))
-    st.error(f'''
-    Image: {returned_data["Image"]}\n
-    Prediction: {returned_data["Prediction"]}\n
-    Probability: {returned_data["Probability"]}\n
-    Comments: {returned_data["Comments"]}
-    ''')
+        st.divider()
+        st.write("## Your Results")
+        st.pyplot(returned_data.pop('Plot'))
+        st.error(f'''
+           Image: {returned_data["Image"]}\n
+           Prediction: {returned_data["Prediction"]}\n
+           Probability: {returned_data["Probability"]}\n
+           Comments: {returned_data["Comments"]}
+           ''')
+    else:
+        # Load the YOLOv8 model
+        model = YOLO('multi_label_classification_model/garbage.pt')
+
+        # Read the image
+        frame = cv2.imread(st.session_state.submission_file.name)
+
+        # Run YOLOv8 inference on the image
+        resized_frame = cv2.resize(frame, (600, 500))
+        results = model(resized_frame, conf=0.3)
+
+        # Visualize the results on the frame
+        annotated_frame = results[0].plot()
+
+        # Display the annotated frame
+        st.subheader("Your Results")
+        st.image(annotated_frame)
+
+
 
 
 def image_prediction(path, model):
