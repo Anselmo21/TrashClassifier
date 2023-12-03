@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from keras.models import model_from_json
 from ultralytics import YOLO
 
+# For more information on the method calls, visit the Streamlit API Reference site 
+# https://docs.streamlit.io/library/api-reference
 
 def main():
     settitle()
