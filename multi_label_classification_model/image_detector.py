@@ -1,3 +1,10 @@
+#------------------------------------------------------------------------------#
+#                                                                              #
+#  Purpose : Test multi-label model for images placed in 'images' folder       #
+#  AUTHOR :  Rafael Dolores                                                    #
+#  ACKNOWLEDGMENT: This work was done without looking at any external sources  #
+#------------------------------------------------------------------------------#
+
 import cv2
 from ultralytics import YOLO
 import os

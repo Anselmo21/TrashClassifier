@@ -1,3 +1,9 @@
+#------------------------------------------------------------------------------#
+#                                                                              #
+#  Purpose :  Extract images from google to form dataset                       #
+#  AUTHOR :  Rafael Dolores                                                    #
+#  ACKNOWLEDGMENT: This work was done without looking at any external sources  #
+#------------------------------------------------------------------------------#
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -5,6 +11,7 @@ import time
 import os
 import urllib.request
 
+#Acknowledgement: This code was not taken from any sources. Solely produced by Rafael Dolores
 def scrape_images(query, num_images=10, output_folder='images'):
     # Set up the WebDriver
     driver = webdriver.Chrome()  # Make sure you have ChromeDriver installed and in your PATH
