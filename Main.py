@@ -13,13 +13,12 @@ def main():
     radio = st.radio(label="Switch between classifying one or multiple objects", options=['One object', 'Multiple objects'])
     submission_file = dropbox()
 
+    if 'submission_file' not in st.session_state or st.session_state.submission_file != submission_file:
+        st.session_state.submission_file = submission_file
+
     if not submission_file is None:
         with open(submission_file.name, 'wb') as f:
             f.write(submission_file.read())
-
-        if 'submission_file' not in st.session_state:
-            st.session_state.submission_file = submission_file
-
         button = st.button(label="Submit File")
         if button:
             st.session_state.radio = radio
@@ -35,7 +34,7 @@ def settitle():
 
 
 def dropbox():
-    dropbox = st.file_uploader(label='Note: The picture must be in colour', type=['png', 'jpg'])
+    dropbox = st.file_uploader(label='Note: The picture must be in colour', type=['jpg'])
     return dropbox
 
 
@@ -74,8 +73,6 @@ def init_model():
         # Display the annotated frame
         st.subheader("Your Results")
         st.image(annotated_frame)
-
-
 
 
 def image_prediction(path, model):
