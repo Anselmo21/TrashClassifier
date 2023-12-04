@@ -18,7 +18,9 @@ To get started with this project, follow these steps:
 2. **Install Dependencies:**
    Navigate to the project directory and run the following command to install the required dependencies:
    pip install -r requirements.txt
-   **Note:**
+
+
+3. **Note:**
    This command does not install all the required libraries for each model_training_pipeline.py to commence, the training. It is only to execute the
    main streamlit application which uses the imported model files (.pt and .json) and as such the training related libraries will have to be installed manually 
    if training was to be redone
