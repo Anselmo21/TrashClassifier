@@ -21,9 +21,9 @@ To get started with this project, follow these steps:
 
 
 3. **Note:**
-   This command does not install all the required libraries for each model_training_pipeline.py to commence, the training. It is only to execute the
+   This command does not install all the required libraries for each model_training_pipeline.py to initiate the training. It is only to execute the
    main streamlit application which uses the imported model files (.pt and .json) and as such the training related libraries will have to be installed manually 
-   if training was to be redone
+   if training is to be redone.
 
 
 ## Running the Application
@@ -51,7 +51,7 @@ steps...
 - **Training Details:** Found in `model_training_pipeline.py`.
 - **Primary Purpose:** The sole purpose of this notebook is to initiate the training of the dataset stored in the Ultralytics Hub.
 - **Configuration:** Yolo model configuration is available in the `data.yaml` file within the dataset directory.
-- **Data Preparation:** The dataset was primarily assembled by scraping images from Google.
+- **Data Preparation:** The dataset was primarily assembled by scraping images from Google. It can be found under dataset folder
 - **Ultralytics Hub:** To start training, an Ultralytics Hub account and API key are necessary. The dataset was uploaded here for training purposes.
 - **Model Output:** The trained model is stored as `garbage.pt`.
 - **Additional Scripts:** 
