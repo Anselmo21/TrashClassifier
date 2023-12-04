@@ -5,7 +5,7 @@ st.title("About the App")
 st.subheader("Single Object Classification (Multi-Class)")
 st.text('''The single object classifier makes use of multi-class classification and transfer 
 learning to provide accurate results. The model was trained from a trash image 
-dataset from Kaggle. DeepNet was utilized in order to facilitate the transfer 
+dataset from Kaggle. DenseNet201 was utilized in order to facilitate the transfer 
 learning portion of the project.''')
 st.image('site_images/multi_class.png', caption='A confusion matrix representing the accuracy of the multi-class model.')
 
