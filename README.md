@@ -51,7 +51,7 @@ steps...
 - **Training Details:** Found in `model_training_pipeline.py`.
 - **Primary Purpose:** The sole purpose of this notebook is to initiate the training of the dataset stored in the Ultralytics Hub.
 - **Configuration:** Yolo model configuration is available in the `data.yaml` file within the dataset directory.
-- **Data Preparation:** The dataset was primarily assembled by scraping images from Google. It can be found under dataset folder
+- **Data Preparation:** The dataset was primarily assembled by scraping images from Google. It can be found under dataset folder 
 - **Ultralytics Hub:** To start training, an Ultralytics Hub account and API key are necessary. The dataset was uploaded here for training purposes.
 - **Model Output:** The trained model is stored as `garbage.pt`.
 - **Additional Scripts:** 
