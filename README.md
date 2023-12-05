@@ -44,7 +44,7 @@ steps...
 - **Training Pipeline:** Detailed in `model_training_pipeline.py`.
 - **Data Source:** The dataset is sourced directly from Kaggle. A Kaggle account and API key are required for training.
 - **Environment:** Designed for the Google Colab environment (free version). For alternative training purposes, this environment is recommended.
-- **Model Output:** The trained model is saved as `garbage_model.json`.
+- **Model Output:** The trained model's architecture is saved as `garbage_model.json` and its trained parameters is saved as `garbage_model.h5`.
 
 ### Multi-Label Classification Model
 - **Location:** The training notebook for the multi-label model is in the `multi_label_classification_model` directory.
