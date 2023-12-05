@@ -42,7 +42,7 @@ def init_model():
     if st.session_state.radio == 'One object':
         json_file = open('multi_class_classification_model/garbage_model.json', 'r').read()
         model = model_from_json(json_file)
-
+        model.load_weights('multi_class_classification_model/garbage_model.h5')
         returned_data = image_prediction(st.session_state.submission_file, model)
 
         st.set_option('deprecation.showPyplotGlobalUse', False)  # Due to visible deprecation warning
