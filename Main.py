@@ -96,10 +96,10 @@ def image_prediction(path, model):
     plt.title(title, fontsize=12)
 
     text = ''
-    if mask_label[label] == 'trash':
-        text = 'Non-recylable'
+    if mask_label[label] in ['trash', 'plastic']:
+        text = 'Non-recyclable' 
     else:
-        text = 'Recylable'
+        text = 'Recyclable'
     return {"Image": path.name, "Prediction": mask_label[label], 'Probability': probability, 'Comments': text, 'Plot': plt.show()}
 
 
