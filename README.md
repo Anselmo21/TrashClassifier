@@ -1,4 +1,4 @@
-# Welcome to Group B's Trash Classifier Project 
+# Welcome to the Trash Classifier Project 
 
 ## Overview
 This repository is dedicated to an image classification project using machine learning. The goal is to develop a model capable of classifying images into various categories with high accuracy.
